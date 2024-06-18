@@ -76,7 +76,7 @@ class Grid{
       rows[i].style.cursor = 'pointer';
       var valRet;
       rows[i].addEventListener("click", function(PnterEvnt){
-        console.log(selectedItem);
+        //console.log(selectedItem);
         rows.forEach(element => {
           element.className = '';
         });
