@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <title>grid</title>
+</head>
+<body id="main">
+  
+
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./myjson.js"></script>
+  <script>
+    var grid1;
+    $.getJSON('data.json')
+    .done(function(data){  
+      grid1 = new Grid(data);
+      let main = document.getElementById("main");
+      main.append(grid1.Grid);
+    })
+    .fail(function(err){
+      return err;
+    });
+
+    $(document).on('click', function(){
+      alert(selectedItem);
+    })
+    
+    //let main = document.getElementById("main");
+    //main.append(grid1.getjsonGrid());
+    //console.log(grid1.getjsonGrid);
+    //main.append(grid1.setjsonGrid('./data.json'));
+
+  </script>
+
+</body>
+</html>
