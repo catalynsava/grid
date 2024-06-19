@@ -12,28 +12,21 @@
 
   <script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./myjson.js"></script>
+  <script src="./grid.js"></script>
   <script>
     var grid1;
     $.getJSON('data.json')
     .done(function(data){  
-      grid1 = new Grid(data);
+      let grid1 = new Grid('i', data);
       let main = document.getElementById("main");
+      //console.log(grid1.Rows);
       main.append(grid1.Grid);
     })
     .fail(function(err){
       return err;
     });
 
-    $(document).on('click', function(){
-      console.log(selectedItem);
-    })
     
-    //let main = document.getElementById("main");
-    //main.append(grid1.getjsonGrid());
-    //console.log(grid1.getjsonGrid);
-    //main.append(grid1.setjsonGrid('./data.json'));
-
   </script>
 
 </body>

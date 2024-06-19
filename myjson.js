@@ -1,6 +1,7 @@
-var selectedItem;
+var selectedItem = 'row0';
 class Grid{
   #gridJson;
+  #filtruJson;
   
   constructor(pJson){
     this.#gridJson = pJson;
@@ -32,6 +33,17 @@ class Grid{
     txtScr.className = 'form-control';
     txtScr.id = 'searchInputBox';
     txtScr.setAttribute('aria-describedby', 'helpId');
+    txtScr.onkeyup = function(key){
+      if(key.code == 'Enter'){
+        //let paramSearch = txtScr.value.split(',');
+        //console.log(paramSearch[0]);
+        this.#filtruJson = json.filter(
+          element =>  
+          element.titular.match(txtScr.value)
+        );
+        console.log(this.#filtruJson);
+      }
+    };
     //--
     //<small id="helpId" class="text-muted">coduri postale</small>
     let smlHlp = document.createElement('small');
