@@ -96,7 +96,7 @@ class Rows{
   get selectedRow(){ return this.#selectedRow; }
 }
 class Row{
-  #row; #cell; #index;
+  #row; #cell;
   constructor(index, pRow){
     this.index = index;
     this.#row = document.createElement('tr');
@@ -119,5 +119,4 @@ class Row{
     this.#row.setAttributeNode(atrb);
   }
   get Row(){ return this.#row; }
-  get selectedIndex(){ return this.#index; }
 }
