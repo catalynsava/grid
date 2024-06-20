@@ -61,7 +61,6 @@ class Grid{
   }
   get SearchText(){ return this.#search; }
   get JsonData(){ return this.#json; }
-  get Json(){ return this.#json; }
   get Grid(){ return this.#grid; }
 }
 class Rows{
