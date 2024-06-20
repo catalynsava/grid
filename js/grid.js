@@ -79,6 +79,7 @@ class Rows{
       this.#tbody.appendChild(this.#row[i].Row);
       i++;
     });
+    // -- tbody click --
     this.#tbody.onclick = function(Event){
       var tbl = document.getElementById('detailTable');
       var oldRow = document.getElementById(tbl.getAttribute('selectedrow'));
@@ -89,6 +90,7 @@ class Rows{
       console.log(tbl.getAttribute('selectedrow'));
       curRow.className = 'table-primary';
     }
+    //-- -- -- -- -- --
   }
   get gridJson(){ return this.#json; }
   get Rows(){ return this.#tbody; }

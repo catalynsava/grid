@@ -23,7 +23,7 @@
     .done(function(data){  
       let grid1 = new Grid('i', data);
       let main = document.getElementById("main");
-      console.log(grid1.Grid.outerHTML);
+      //console.log(grid1.Grid.outerHTML);
       main.append(grid1.Grid);
     })
     .fail(function(err){
