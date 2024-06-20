@@ -51,7 +51,8 @@ class Grid{
     var atrb = document.createAttribute('selectedrow');
     atrb.value = 'row0';
     tabela.setAttributeNode(atrb);
-
+    var rowsContent = new Rows(jsonParam.filter(element => element.titular.match(inputSearch.value)));
+    tabela.appendChild(rowsContent.Rows);
     detailDiv.appendChild(tabela);
 
     this.#grid.appendChild(searchDiv);
