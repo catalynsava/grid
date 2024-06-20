@@ -24,8 +24,9 @@ class Grid{
     //--------------------------------------------
     inputSearch.onkeyup = function(tasta){
         var rowsContent = new Rows(jsonParam.filter(element => element.titular.match(this.value)));
-        console.log(rowsContent.Rows);
+        document.getElementById('detailTable').setAttribute('selectedrow','row0')
         document.getElementById('detailTable').replaceChildren(rowsContent.Rows);
+
     };
     //-------------------------------------------
     let smlHlp = document.createElement('small');
@@ -88,15 +89,9 @@ class Rows{
     this.#tbody.style.cursor = 'pointer';
     
     var i = 0;
-    pJson.forEach(element => {
-      //if(i == 0){
-        this.#row.push(new Row(i, element));
-        //this.#row[i].className='table-primary';
-        this.#tbody.appendChild(this.#row[i].Row);
-      //}else{
-      //  this.#row.push(new Row(i, element));
-      //  this.#tbody.appendChild(this.#row[i].Row);
-      //}
+    pJson.forEach(element => {      
+      this.#row.push(new Row(i, element));
+      this.#tbody.appendChild(this.#row[i].Row);
       i++;
     });
     this.#tbody.onclick = function(Event){
