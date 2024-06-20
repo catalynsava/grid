@@ -21,7 +21,14 @@ class Grid{
     inputSearch.setAttribute('aria-describedby', 'helpId');
     //-- keyup --
     inputSearch.onkeyup = function(tasta){
-        var rowsContent = new Rows(jsonParam.filter(element => element.titular.match(this.value)));
+        var rowsContent = new Rows(jsonParam.filter( element => 
+            element.cod_localitate.match(this.value) ||
+            element.tip.match(this.value) ||
+            element.volum.match(this.value) ||
+            element.pozitie.match(this.value) ||
+            element.titular.match(this.value)
+          )
+        );
         document.getElementById('detailTable').setAttribute('selectedrow','row0')
         document.getElementById('detailTable').replaceChildren(rowsContent.Rows);
     };
@@ -51,7 +58,14 @@ class Grid{
     var atrb = document.createAttribute('selectedrow');
     atrb.value = 'row0';
     tabela.setAttributeNode(atrb);
-    var rowsContent = new Rows(jsonParam.filter(element => element.titular.match(inputSearch.value)));
+    var rowsContent = new Rows(jsonParam.filter(element => 
+      element.cod_localitate.match(inputSearch.value) ||
+      element.tip.match(inputSearch.value) ||
+      element.volum.match(inputSearch.value) ||
+      element.pozitie.match(inputSearch.value) ||
+      element.titular.match(inputSearch.value) 
+      )
+    );
     tabela.appendChild(rowsContent.Rows);
     detailDiv.appendChild(tabela);
 
