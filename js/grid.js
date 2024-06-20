@@ -1,7 +1,5 @@
 class Grid{
-  #json;
-  #search;
-  #grid;
+  #json; #search; #grid;
   constructor(searchParam, jsonParam){
     this.#search = searchParam;
     this.#json = jsonParam.filter(element => element.titular.match(searchParam));
@@ -21,14 +19,13 @@ class Grid{
     inputSearch.className = 'form-control form-control-sm';
     inputSearch.id = 'inputSearch';
     inputSearch.setAttribute('aria-describedby', 'helpId');
-    //--------------------------------------------
+    //-- keyup --
     inputSearch.onkeyup = function(tasta){
         var rowsContent = new Rows(jsonParam.filter(element => element.titular.match(this.value)));
         document.getElementById('detailTable').setAttribute('selectedrow','row0')
         document.getElementById('detailTable').replaceChildren(rowsContent.Rows);
-
     };
-    //-------------------------------------------
+    //-- -- -- --
     let smlHlp = document.createElement('small');
     smlHlp.className = 'text-muted';
     smlHlp.id = 'helpId';
@@ -62,25 +59,13 @@ class Grid{
     scrollDiv.appendChild(detailDiv);
     this.#grid.appendChild(scrollDiv);
   }
-
-  get SearchText(){
-    return this.#search;
-  }
-  static get JsonData(){
-    return this.#json;
-  }
-  get Json(){
-    return this.#json;
-  }
-  get Grid(){
-    return this.#grid;
-  }
+  get SearchText(){ return this.#search; }
+  get JsonData(){ return this.#json; }
+  get Json(){ return this.#json; }
+  get Grid(){ return this.#grid; }
 }
 class Rows{
-  #tbody;
-  #json;
-  #row=[];
-  #selectedRow;
+  #tbody; #json; #row=[]; #selectedRow;
   constructor(pJson){
     this.#json = pJson;
         
@@ -105,23 +90,12 @@ class Rows{
       curRow.className = 'table-primary';
     }
   }
-
-  get gridJson(){
-    return this.#json;
-  }
-
-  get Rows(){
-    return this.#tbody;
-  }
-
-  get selectedRow(){
-    return this.#selectedRow;
-  }
+  get gridJson(){ return this.#json; }
+  get Rows(){ return this.#tbody; }
+  get selectedRow(){ return this.#selectedRow; }
 }
 class Row{
-  #row
-  #cell;
-  #index;
+  #row; #cell; #index;
   constructor(index, pRow){
     this.index = index;
     this.#row = document.createElement('tr');
@@ -143,10 +117,6 @@ class Row{
     atrb.value = index;
     this.#row.setAttributeNode(atrb);
   }
-  get Row(){
-    return this.#row;
-  }
-  get selectedIndex(){
-    return this.#index;
-  }
+  get Row(){ return this.#row; }
+  get selectedIndex(){ return this.#index; }
 }
