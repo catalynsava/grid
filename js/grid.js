@@ -9,7 +9,7 @@ class Grid{
     this.#grid.id = 'Grid';
 
     let searchDiv = document.createElement('div');
-    searchDiv.className = 'form-control form-group-sm mb-1'
+    searchDiv.className = 'form-control form-group-sm mb-1';
     let lbl1 = document.createElement('label');
     lbl1.setAttribute('for', 'searchInputBox');
     lbl1.className = 'form-label';
@@ -29,7 +29,7 @@ class Grid{
             element.titular.match(this.value)
           )
         );
-        document.getElementById('detailTable').setAttribute('selectedrow','row0')
+        document.getElementById('detailTable').setAttribute('selectedrow','row0');
         document.getElementById('detailTable').replaceChildren(rowsContent.Rows);
     };
     //-- -- -- --
@@ -95,14 +95,15 @@ class Rows{
     });
     // -- tbody click --
     this.#tbody.onclick = function(Event){
-      var tbl = document.getElementById('detailTable');
-      var oldRow = document.getElementById(tbl.getAttribute('selectedrow'));
+      let tbl = document.getElementById('detailTable');
+      let oldRow = document.getElementById(tbl.getAttribute('selectedrow'));
       oldRow.className='';
 
-      var curRow = Event.target.parentNode;
+      let curRow = Event.target.parentNode;
       tbl.setAttribute('selectedrow', curRow.id)
       console.log(tbl.getAttribute('selectedrow'));
       curRow.className = 'table-primary';
+      this.removeEventListener('click', Event.target);
     }
     //-- -- -- -- -- --
   }
@@ -116,12 +117,12 @@ class Row{
     this.index = index;
     this.#row = document.createElement('tr');
     this.#row.id = `row${index}`;
-    if(index == 0){
+    if(index === 0){
       this.#row.className='table-primary';
     }
     Object.keys(pRow).forEach(element => {
       this.#cell = document.createElement('td');
-      if(element.substring(0,2) == 'id'){
+      if(element.substring(0,2) === 'id'){
         this.#cell.style.display ='none';
       }
       this.#cell.id= element;
